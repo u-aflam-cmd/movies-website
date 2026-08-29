@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>U-AFLAM MOVIES PAGE</title>
+        <link rel="stylesheet" href="movies.css">
+    </head>
+    <body>
+        <h1>U-AFLAM MOVIES PAGE</h1>
+        
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="#">Movies</a>
+            <a href="TVshows.html">TV Shows</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" id="movieSearch" placeholder="Search...">
+        </div>
+
+        <section>
+            <h2>Latest Movies</h2>
+
+            <div class="movie">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/08/Toy_Story_5_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=originall" alt="">
+
+                <h3>Toy Story 5</h3>
+
+                <p>Cartoon</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>7.4
+                </p>
+
+                <a href="https://arrowtv.net/watch/movie/1084244" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/9/90/The_Odyssey_%282026_film%29_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail_unscaled" alt="">
+
+                <h3>The Odyssey</h3>
+
+                <p>Action</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.0
+                </p>
+
+                <a href="https://arrowtv.net/watch/movie/1368337" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Minions_%26_Monsters_poster.jpg/250px-Minions_%26_Monsters_poster.jpg?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail" alt="">
+
+                <h3>Minions & Monsters</h3>
+
+                <p>Fun</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>7.3
+                </p>
+
+                <a href="https://streamex.ws/watch-movie-minions-monsters-2026-t1drgu" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://m.media-amazon.com/images/I/91BPTaok5JL._AC_UF1000,1000_QL80_.jpg" alt="">
+
+                <h3>Spider-Man</h3>
+
+                <p>Action</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>7.9
+                </p>
+
+                <a href="https://streamex.ws/watch-movie-spider-man-brand-new-day-2026-urpgi1" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://lumiere-a.akamaihd.net/v1/images/image_4f8f65c5.jpeg?region=0%2C0%2C540%2C810&width=320" alt="">
+
+                <h3>Moana</h3>
+
+                <p>Fun/Adventure</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>6.0
+                </p>
+
+                <a href="https://arrowtv.net/watch/movie/1108427" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/b/bf/The_Super_Mario_Galaxy_Movie_poster.jpeg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="">
+
+                <h3>Super Mario Galaxy</h3>
+
+                <p>Cartoon</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.3
+                </p>
+
+                <a href="https://arrowtv.net/watch/movie/1226863" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://assets.voxcinemas.com/posters/P_HO00013088_1776406034678.jpg" alt="">
+
+                <h3>MUTINY</h3>
+
+                <p>Action</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>6.4
+                </p>
+
+                <a href="https://arrowtv.net/watch/movie/1288445" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <script>
+
+        const searchInput = document.getElementById("movieSearch");
+        const movies = document.querySelectorAll(".movie");
+
+        searchInput.addEventListener("input", function () {
+
+            const searchText = this.value.toLowerCase();
+
+            movies.forEach(function (movie) {
+
+                const movieName =
+                    movie.querySelector("h3").textContent.toLowerCase();
+
+                if (movieName.includes(searchText)) {
+
+                    movie.style.display = "";
+
+                } else {
+
+                    movie.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    </script>
+    </body>
+</html>

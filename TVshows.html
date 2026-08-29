@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>U-AFLAM TV SHOWS PAGE</title>
+        <link rel="stylesheet" href="TVshows.css">
+    </head>
+    <body>
+        <h1>U-AFLAM TV SHOWS PAGE</h1>
+        
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="#">TV Shows</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" id="movieSearch" placeholder="Search...">
+        </div>
+
+        <section>
+            <h2>BEST TV SHOWS</h2>
+
+            <div class="movie">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7WpnaAOf5UxkpHS6lVB-_Udg9SWEEHgssoumlXsXb3A&s=10" alt="">
+
+                <h3>Ted Lasso</h3>
+
+                <p>Adventure</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.7
+                </p>
+
+                <a href="https://streamex.ws/watch-tv-ted-lasso-2020-0ersps#s1-e1" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BMmE0YTA3MTItMjhiNC00MGQ3LTllZDktNGNiZWY1OWFmNmM1XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="">
+
+                <h3>Reacher</h3>
+
+                <p>Action</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.1
+                </p>
+
+                <a href="https://streamex.ws/watch-tv-reacher-2022-r2nvlg" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQemlx2UW8zNO3ZIyPVYC8LVKPsw11olWKNT7j_vB9Hxrt_ayLXDXodYmA&s=10" alt="">
+
+                <h3>Stranger Things</h3>
+
+                <p>Science Fiction</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.6
+                </p>
+
+                <a href="https://streamex.ws/watch-movie-stranger-things-fireplace-2025-4w6vkf" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://upload.wikimedia.org/wikipedia/en/0/07/JujutsuKaisenkeyvisual.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" alt="">
+
+                <h3>Jujutsu Kaisen</h3>
+
+                <p>Fights</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.9
+                </p>
+
+                <a href="https://arrowtv.net/watch/tv/95479?season=1&episode=1" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+
+            <div class="movie">
+
+                <img src="https://m.media-amazon.com/images/M/MV5BMThjMjYxM2YtM2IzZC00NDdmLThiNDYtNzEyNzA0YTRmYTk3XkEyXkFqcGc@._V1_.jpg" alt="">
+
+                <h3>The Pitt</h3>
+
+                <p>Drama/medicine</p>
+
+                <p>
+                    <i class="fa-solid fa-star"></i>8.9
+                </p>
+
+                <a href="https://streamex.ws/watch-tv-the-pitt-2025-c1v5j9" class="watch-now-btn">
+                    Watch Now >
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <script>
+
+        const searchInput = document.getElementById("movieSearch");
+        const movies = document.querySelectorAll(".movie");
+
+        searchInput.addEventListener("input", function () {
+
+            const searchText = this.value.toLowerCase();
+
+            movies.forEach(function (movie) {
+
+                const movieName =
+                    movie.querySelector("h3").textContent.toLowerCase();
+
+                if (movieName.includes(searchText)) {
+
+                    movie.style.display = "";
+
+                } else {
+
+                    movie.style.display = "none";
+
+                }
+
+            });
+
+        });
+
+    </script>
+    </body>
+</html>

@@ -1,0 +1,378 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* BODY */
+
+body {
+    height: 100vh;
+
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+
+    background-image: url('moviesbg2.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #121620;
+}
+
+
+/* HEADER */
+
+header {
+    height: 10vh;
+    width: 100%;
+
+    background-color: black;
+    color: white;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding-left: 50px;
+    padding-right: 50px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.logo h1,
+.logo i {
+    font-size: 26px;
+}
+
+.logo span,
+.logo i {
+    color: #0D47A1;
+}
+
+
+/* NAVIGATION */
+
+nav {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+nav a {
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 20px;
+}
+
+nav a:hover {
+    color: #042556;
+
+    transition: 0.3s;
+}
+
+
+/* SEARCH */
+
+.search {
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+}
+
+.search:hover {
+    color: #042556;
+
+    transition: 0.3s;
+}
+
+.search input {
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    outline-color: #0D47A1;
+
+    font-size: 16px;
+}
+
+
+/* SIGN IN */
+
+.sign-in {
+    background-color: #0D47A1;
+
+    padding: 10px 20px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    color: white;
+}
+
+.sign-in:hover {
+    color: #042556;
+
+    transition: 0.3s;
+}
+
+
+/* WELCOME BOX */
+
+.welcome-box {
+    width: 80%;
+
+    margin: 120px auto 40px;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    text-align: center;
+
+    border: 2px solid #1595ed;
+
+    border-radius: 15px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    box-shadow: 0 0 15px #1595ed;
+
+    color: white;
+
+    transition: 0.3s ease;
+}
+
+.welcome-box:hover {
+    transform: scale(1.03);
+
+    box-shadow: 0 0 30px #1595ed;
+
+    border-color: white;
+}
+
+.welcome-box h1 {
+    margin: 0 0 15px;
+
+    font-size: 35px;
+}
+
+.welcome-box p {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+
+/* MAIN */
+
+main {
+    margin: 10vh 10vw 7vh;
+
+    height: 81vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+    color: white;
+}
+
+
+/* SECTION HEADER */
+
+.section_header {
+    margin-top: 20px;
+
+    width: 100%;
+}
+
+.section_header h1 {
+    font-size: 32px;
+
+    font-weight: 600;
+
+    outline: white 5px;
+}
+
+
+/* MOVIES LIST */
+
+.movies_list {
+    display: flex;
+
+    gap: 30px;
+}
+
+
+/* MOVIES */
+
+.movie {
+    display: flex;
+
+    flex-direction: column;
+
+    height: 80%;
+
+    gap: 10px;
+
+    padding-bottom: 200px;
+}
+
+.movie img {
+    width: 100%;
+
+    height: 300px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+.movie p,
+.movie h3 {
+    color: #fff;
+}
+
+.movie p {
+    font-style: italic;
+
+    font-size: 16px;
+
+    font-weight: 600;
+
+    color: #aaa;
+}
+
+.movie h3 {
+    font-size: 16px;
+
+    color: #aaa;
+}
+
+.movie:hover {
+    transform: scale(1.03);
+
+    border-color: white;
+
+    transition: 0.4s;
+}
+
+
+/* WATCH NOW BUTTON */
+
+.watch-now-btn {
+    display: block;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 10px 16px;
+
+    margin-top: 10px;
+
+    background-color: #0066cc;
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    text-decoration: none;
+
+    text-align: center;
+
+    letter-spacing: 0.5px;
+
+    border: none;
+
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.watch-now-btn:hover {
+    background-color: #0052a3;
+
+    transform: translateY(-2px);
+}
+
+.watch-now-btn:active {
+    transform: translateY(0);
+}
+
+/* FOOTER */
+
+footer {
+    position: fixed;
+
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 7vh;
+
+    background-color: black;
+
+    color: #fff;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 40px;
+
+    font-size: 18px;
+
+    z-index: 1000;
+}
+
+footer p {
+    font-size: 18px;
+
+    font-weight: bold;
+}
+
+footer span {
+    font-size: 18px;
+
+    color: #0D47A1;
+}
