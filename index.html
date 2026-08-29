@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sign In To U-AFLAM</title>
+        <link rel="stylesheet" href="SignIn.css">
+
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Sign In</h1>
+            <form autocomplete="off" action="home.html">
+                <label for="username">Username :</label>
+                <input type="text" id="username" name="username" autocomplete="off" required>
+
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" autocomplete="off" required>
+
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="password" autocomplete="new-password" required>
+
+                <button type="submit">Continue</button>>
+                <script>
+                function goToWebsite() {
+                    let username = document.getElementById("username").value;
+                    let email = document.getElementById("email").value;
+                    let password = document.getElementById("password").value;
+
+                    if (username === "" || email === "" || password === "") {
+                    alert("Please fill in all the blanks!");
+                    } else {
+                    window.location.href = "";
+                    }
+                }
+            </script>
+            </form>
+        </div>
+    </body>
+</html>
