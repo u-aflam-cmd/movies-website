@@ -1,1 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <url>
+    <loc>https://u-aflam-cmd.github.io/movies-website/</loc>
+  </url>
+
+  <url>
+    <loc>https://u-aflam-cmd.github.io/movies-website/Movies.html</loc>
+  </url>
+
+  <url>
+    <loc>https://u-aflam-cmd.github.io/movies-website/TVShows.html</loc>
+  </url>
+
+  <url>
+    <loc>https://u-aflam-cmd.github.io/movies-website/About.html</loc>
+  </url>
+
+  <url>
+    <loc>https://u-aflam-cmd.github.io/movies-website/Contact.html</loc>
+  </url>
+
+</urlset>
