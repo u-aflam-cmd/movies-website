@@ -124,22 +124,21 @@ nav a:hover {
 
 /* SIGN IN */
 
-.sign-in {
-    background-color: #0D47A1;
-
-    padding: 10px 20px;
-
-    border-radius: 10px;
-
-    text-decoration: none;
-
+.signin-btn {
+    background-color: #0066ff;
     color: white;
+    border: 2px solid #0066ff;
+    padding: 12px 28px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
 }
 
-.sign-in:hover {
-    color: #042556;
-
-    transition: 0.3s;
+.signin-btn:hover {
+    background-color: #003399;
+    border-color: #003399;
+    transform: scale(1.08);
+    box-shadow: 0 0 15px #0066ff;
 }
 
 
