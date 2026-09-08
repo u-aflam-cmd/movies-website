@@ -10,7 +10,7 @@
 body {
     height: 100vh;
 
-    font-family: plus jakarta sans;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
 
     background-image: url('moviesbg2.png');
