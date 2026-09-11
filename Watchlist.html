@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>U-AFLAM WATCHLIST</title>
+    <link rel="stylesheet" href="Watchlist.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <h1>U-<span>AFLAM</span></h1>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="TVshows.html">TV Shows</a>
+            <a href="#">My Watchlist</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" id="movieSearch" placeholder="Search...">
+        </div>
+
+        <a href="index.html" class="sign-in">Sign In</a>
+
+    </header>
+
+
+    <main>
+
+        <div class="section_header">
+            <h1>MY WATCHLIST</h1>
+        </div>
+
+        <div class="movies_list" id="watchlistMovies"></div>
+
+        <p id="emptyMessage" style="text-align: center;">
+            Your watchlist is empty.
+        </p>
+
+    </main>
+
+
+    <script>
+
+        const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+
+        const watchlistMovies = document.getElementById("watchlistMovies");
+        const emptyMessage = document.getElementById("emptyMessage");
+
+
+        function displayWatchlist() {
+
+            watchlistMovies.innerHTML = "";
+
+            if (watchlist.length === 0) {
+
+                emptyMessage.style.display = "block";
+                return;
+
+            }
+
+            emptyMessage.style.display = "none";
+
+
+            watchlist.forEach(function (movie, index) {
+
+                const movieCard = document.createElement("div");
+
+                movieCard.className = "movie";
+
+                movieCard.innerHTML = `
+                    <img src="${movie.image}" alt="">
+
+                    <h3>${movie.title}</h3>
+
+                    <p>${movie.genre}</p>
+
+                    <p>
+                        <i class="fa-solid fa-star"></i>${movie.rating}
+                    </p>
+
+                    <a href="${movie.url}" class="watch-now-btn">
+                        Watch Now >
+                    </a>
+
+                    <button class="watchlist-btn"
+                        onclick="removeFromWatchlist(${index})">
+                        Remove from Watchlist
+                    </button>
+                `;
+
+                watchlistMovies.appendChild(movieCard);
+
+            });
+
+        }
+
+
+        function removeFromWatchlist(index) {
+
+            watchlist.splice(index, 1);
+
+            localStorage.setItem(
+                "watchlist",
+                JSON.stringify(watchlist)
+            );
+
+            displayWatchlist();
+
+        }
+
+
+        displayWatchlist();
+
+    </script>
+
+</body>
+
+</html>
