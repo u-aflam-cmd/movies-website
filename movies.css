@@ -169,6 +169,7 @@ input[type="text"] {
 .movie button:hover {
     background-color: white;
     transform: scale(1.05);
+    color: black;
 }
 
 .watchlist-btn {
