@@ -14,7 +14,6 @@ body {
     color: white;
     align-items: center;
     text-align: center;
-    zoom: 1.25;
 }
 
 /* =========================
@@ -163,6 +162,30 @@ input[type="text"] {
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
+}
+
+.watchlist-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 10px;
+
+    background-color: transparent;
+    color: white;
+
+    border: 1px solid #1e5eff;
+    border-radius: 5px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.watchlist-btn:hover {
+    background-color: #1e5eff;
+    color: white;
 }
 
 .movie a:hover,
