@@ -19,7 +19,6 @@ body {
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-color: #121620;
-    zoom: 1.25;
 }
 
 
@@ -284,6 +283,24 @@ main {
     border-color: white;
 
     transition: 0.4s;
+}
+
+.user-rating {
+    display: flex;
+    gap: 4px;
+    margin-top: 8px;
+}
+
+.user-rating span {
+    color: #777;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.user-rating span:hover {
+    color: #1e5eff;
+    transform: scale(1.15);
 }
 
 
