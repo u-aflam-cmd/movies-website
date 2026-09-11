@@ -14,7 +14,6 @@ body {
     color: white;
     align-items: center;
     text-align: center;
-    zoom: 1.25;
 }
 
 /* =========================
@@ -102,6 +101,27 @@ input[type="text"] {
     margin: 0 auto 50px;
 }
 
+.user-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.user-rating span {
+    color: #777;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.user-rating span:hover {
+    color: #1e5eff;
+    transform: scale(1.15);
+}
+
 /* =========================
    MOVIE CARD
 ========================= */
@@ -172,6 +192,7 @@ input[type="text"] {
     margin-top: 10px;
 
     background-color: transparent;
+    color: white;
 
     border: 1px solid #1e5eff;
     border-radius: 5px;
@@ -181,7 +202,6 @@ input[type="text"] {
 
     cursor: pointer;
     transition: 0.3s;
-    color: black;
 }
 
 .watchlist-btn:hover {
