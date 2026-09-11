@@ -73,6 +73,14 @@
                     <i class="fa-solid fa-star"></i>8.7
                 </p>
 
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
+
                 <a href="https://streamex.ws/watch-tv-ted-lasso-2020-0ersps#s1-e1" class="watch-now-btn">
                     Watch Now >
                 </a>
@@ -95,6 +103,14 @@
                 <p>
                     <i class="fa-solid fa-star"></i>8.0
                 </p>
+
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
 
                 <a href="https://arrowtv.net/watch/movie/1368337" class="watch-now-btn">
                     Watch Now >
@@ -119,6 +135,14 @@
                     <i class="fa-solid fa-star"></i>8.1
                 </p>
 
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
+
                 <a href="https://streamex.ws/watch-tv-reacher-2022-r2nvlg" class="watch-now-btn">
                     Watch Now >
                 </a>
@@ -142,6 +166,14 @@
                     <i class="fa-solid fa-star"></i>7.9
                 </p>
 
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
+
                 <a href="https://streamex.ws/watch-movie-spider-man-brand-new-day-2026-urpgi1" class="watch-now-btn">
                     Watch Now >
                 </a>
@@ -159,11 +191,19 @@
 
                 <h3>Stranger Things</h3>
 
-                <p>Sci-Fi</p>
+                <p>Science Fiction</p>
 
                 <p>
                     <i class="fa-solid fa-star"></i>8.6
                 </p>
+
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
 
                 <a href="https://streamex.ws/watch-movie-stranger-things-fireplace-2025-4w6vkf" class="watch-now-btn">
                     Watch Now >
@@ -188,6 +228,14 @@
                     <i class="fa-solid fa-star"></i>8.3
                 </p>
 
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
+
                 <a href="https://arrowtv.net/watch/movie/1226863" class="watch-now-btn">
                     Watch Now >
                 </a>
@@ -210,6 +258,14 @@
                 <p>
                     <i class="fa-solid fa-star"></i>6.4
                 </p>
+
+                <div class="user-rating">
+                    <span onclick="rateMovie(this, 1)">☆</span>
+                    <span onclick="rateMovie(this, 2)">☆</span>
+                    <span onclick="rateMovie(this, 3)">☆</span>
+                    <span onclick="rateMovie(this, 4)">☆</span>
+                    <span onclick="rateMovie(this, 5)">☆</span>
+                </div>
 
                 <a href="https://arrowtv.net/watch/movie/1288445" class="watch-now-btn">
                     Watch Now >
@@ -291,10 +347,67 @@
     button.textContent = "✓ Added to Watchlist";
 }
 
+function rateMovie(star, rating) {
+
+    const movie = star.closest(".movie");
+    const movieTitle = movie.querySelector("h3").textContent;
+
+    const stars = movie.querySelectorAll(".user-rating span");
+
+    stars.forEach(function(currentStar, index) {
+
+        if (index < rating) {
+            currentStar.textContent = "★";
+            currentStar.style.color = "#1e5eff";
+        } else {
+            currentStar.textContent = "☆";
+            currentStar.style.color = "#777";
+        }
+
+    });
+
+    let ratings = JSON.parse(localStorage.getItem("ratings")) || {};
+
+    ratings[movieTitle] = rating;
+
+    localStorage.setItem("ratings", JSON.stringify(ratings));
+
+}
+
+function loadRatings() {
+
+    const ratings = JSON.parse(localStorage.getItem("ratings")) || {};
+
+    document.querySelectorAll(".movie").forEach(function(movie) {
+
+        const movieTitle = movie.querySelector("h3").textContent;
+        const rating = ratings[movieTitle];
+
+        if (rating) {
+
+            const stars = movie.querySelectorAll(".user-rating span");
+
+            stars.forEach(function(star, index) {
+
+                if (index < rating) {
+                    star.textContent = "★";
+                    star.style.color = "#1e5eff";
+                } else {
+                    star.textContent = "☆";
+                    star.style.color = "#777";
+                }
+
+            });
+
+        }
+
+    });
+
+}
+
+loadRatings();
     </script>
 
 </body>
-
-</html>
 
 </html>
