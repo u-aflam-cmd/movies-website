@@ -14,7 +14,6 @@ body {
     color: white;
     align-items: center;
     text-align: center;
-    zoom: 1.25;
 }
 
 /* =========================
@@ -132,6 +131,27 @@ input[type="text"] {
     margin: 0 auto;
 }
 
+.user-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.user-rating span {
+    color: #777;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.user-rating span:hover {
+    color: #1e5eff;
+    transform: scale(1.15);
+}
+
 /* =========================
    MOVIE TEXT
 ========================= */
@@ -169,7 +189,6 @@ input[type="text"] {
 .movie button:hover {
     background-color: white;
     transform: scale(1.05);
-    color: black;
 }
 
 .watchlist-btn {
@@ -179,7 +198,7 @@ input[type="text"] {
     margin-top: 10px;
 
     background-color: transparent;
-    color: black;
+    color: white;
 
     border: 1px solid #1e5eff;
     border-radius: 5px;
