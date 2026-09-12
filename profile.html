@@ -154,6 +154,53 @@ if (savedPicture) {
 
 }
 
+
+function loadRecentlyWatched() {
+
+    const recentlyWatched =
+        JSON.parse(localStorage.getItem("recentlyWatched")) || [];
+
+    const recentList =
+        document.getElementById("recentList");
+
+    const emptyRecent =
+        document.getElementById("emptyRecent");
+
+    if (recentlyWatched.length === 0) {
+
+        emptyRecent.style.display = "block";
+        return;
+
+    }
+
+    emptyRecent.style.display = "none";
+
+    recentlyWatched.forEach(function(item) {
+
+        const recentCard =
+            document.createElement("div");
+
+        recentCard.className = "recent-card";
+
+        recentCard.innerHTML = `
+            <img src="${item.image}" alt="">
+            <h3>${item.title}</h3>
+            <p>${item.genre}</p>
+
+            <a href="${item.url}" class="recent-watch-btn">
+                Watch Now >
+            </a>
+        `;
+
+        recentList.appendChild(recentCard);
+
+    });
+
+}
+
+loadRecentlyWatched();
+
+</script>
 </script>
 
 </body>
