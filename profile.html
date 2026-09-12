@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 
@@ -76,6 +77,7 @@
 
     </main>
 
+
     <script>
 
 function editProfile() {
@@ -102,6 +104,7 @@ function editProfile() {
 
 }
 
+
 const savedName =
     localStorage.getItem("profileName");
 
@@ -111,6 +114,7 @@ if (savedName) {
         savedName;
 
 }
+
 
 const profilePictureInput =
     document.getElementById("profilePictureInput");
@@ -169,11 +173,12 @@ function loadRecentlyWatched() {
     if (recentlyWatched.length === 0) {
 
         emptyRecent.style.display = "block";
-        return;
 
+        return;
     }
 
     emptyRecent.style.display = "none";
+
 
     recentlyWatched.forEach(function(item) {
 
@@ -198,11 +203,12 @@ function loadRecentlyWatched() {
 
 }
 
+
 loadRecentlyWatched();
 
-</script>
 </script>
 
 </body>
 
 </html>
+```
