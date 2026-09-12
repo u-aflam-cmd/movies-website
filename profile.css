@@ -85,6 +85,12 @@ nav a:hover {
     color: white;
 }
 
+.sign-in a:hover {
+    color: #042556;
+
+    transition: 0.3s;
+}
+
 /* PROFILE */
 
 .profile-container {
