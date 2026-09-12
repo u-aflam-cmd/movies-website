@@ -13,6 +13,7 @@
             <a href="movies.html">Movies</a>
             <a href="#">TV Shows</a>
             <a href="Watchlist.html">My Watchlist</a>
+            <a href="profile.html">Profile</a>
             <a href="AboutUs.html">About Us</a>
             <a href="ContactUs.html">Contact Us</a>
         </nav>
@@ -44,8 +45,8 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://streamex.ws/watch-tv-ted-lasso-2020-0ersps#s1-e1" class="watch-now-btn">
-                    Watch Now >
+                <a href="https://streamex.ws/watch-tv-ted-lasso-2020-0ersps#s1-e1" class="watch-now-btn"
+                    onclick="addToRecentlyWatched(this)">
                 </a>
 
                 <button class="watchlist-btn" onclick="addToWatchlist(this)">
@@ -75,7 +76,8 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://streamex.ws/watch-tv-reacher-2022-r2nvlg" class="watch-now-btn">
+                <a href="https://streamex.ws/watch-tv-reacher-2022-r2nvlg" class="watch-now-btn"
+                    onclick="addToRecentlyWatched(this)">
                     Watch Now >
                 </a>
 
@@ -106,7 +108,8 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://streamex.ws/watch-movie-stranger-things-fireplace-2025-4w6vkf" class="watch-now-btn">
+                <a href="https://streamex.ws/watch-movie-stranger-things-fireplace-2025-4w6vkf" class="watch-now-btn"
+                    onclick="addToRecentlyWatched(this)">
                     Watch Now >
                 </a>
 
@@ -137,7 +140,8 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://arrowtv.net/watch/tv/95479?season=1&episode=1" class="watch-now-btn">
+                <a href="https://arrowtv.net/watch/tv/95479?season=1&episode=1" class="watch-now-btn"
+                    onclick="addToRecentlyWatched(this)">
                     Watch Now >
                 </a>
 
@@ -168,7 +172,8 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://streamex.ws/watch-tv-the-pitt-2025-c1v5j9" class="watch-now-btn">
+                <a href="https://streamex.ws/watch-tv-the-pitt-2025-c1v5j9" class="watch-now-btn"
+                    onclick="addToRecentlyWatched(this)">
                     Watch Now >
                 </a>
 
@@ -315,7 +320,36 @@ function loadRatings() {
 
 loadRatings();
 
+function addToRecentlyWatched(button) {
 
+    const movie = button.closest(".movie");
+
+    const movieData = {
+        title: movie.querySelector("h3").textContent,
+        genre: movie.querySelector("p").textContent,
+        image: movie.querySelector("img").src,
+        url: button.href
+    };
+
+    let recentlyWatched =
+        JSON.parse(localStorage.getItem("recentlyWatched")) || [];
+
+    // Remove it first if it already exists
+    recentlyWatched = recentlyWatched.filter(function(item) {
+        return item.title !== movieData.title;
+    });
+
+    // Put the newest one first
+    recentlyWatched.unshift(movieData);
+
+    // Keep only the 10 most recent
+    recentlyWatched = recentlyWatched.slice(0, 10);
+
+    localStorage.setItem(
+        "recentlyWatched",
+        JSON.stringify(recentlyWatched)
+    );
+}
 
     </script>
     </body>
