@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: white;
+    font-family: Arial, sans-serif;
+    zoom: 1.25;
+}
+
+/* HEADER */
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #111;
+}
+
+#profilePictureInput {
+    display: block;
+    margin: 15px auto 0;
+    color: white;
+}
+
+.logo h1 {
+    font-size: 28px;
+}
+
+.logo span {
+    color: #1e5eff;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #1e5eff;
+}
+
+.search input {
+    padding: 9px 15px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+
+.sign-in {
+    color: white;
+    text-decoration: none;
+    background-color: #1e5eff;
+    padding: 10px 18px;
+    border-radius: 5px;
+}
+
+/* PROFILE */
+
+.profile-container {
+    width: 80%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+.profile-header {
+    text-align: center;
+    background-color: #151515;
+    padding: 35px;
+    border-radius: 12px;
+}
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1e5eff;
+}
+
+.profile-header h1 {
+    margin-top: 15px;
+}
+
+.edit-profile-btn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #1e5eff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* RECENTLY WATCHED */
+
+.recent-section {
+    margin-top: 40px;
+}
+
+.recent-section h2 {
+    margin-bottom: 20px;
+}
+
+.recent-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.recent-card {
+    background-color: #151515;
+    padding: 12px;
+    border-radius: 10px;
+}
+
+.recent-card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.recent-card h3 {
+    margin-top: 10px;
+}
+
+.recent-card p {
+    color: #aaa;
+    margin-top: 5px;
+}
