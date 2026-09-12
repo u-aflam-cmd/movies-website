@@ -17,6 +17,14 @@ body {
     zoom: 1.25;
 }
 
+#noResults {
+    display: none;
+    text-align: center;
+    font-size: 20px;
+    color: #aaa;
+    margin: 40px 0;
+}
+
 /* =========================
    NAVIGATION
 ========================= */
