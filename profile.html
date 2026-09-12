@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>U-AFLAM PROFILE</title>
+
+    <link rel="stylesheet" href="Profile.css">
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            <h1>U-<span>AFLAM</span></h1>
+        </div>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="movies.html">Movies</a>
+            <a href="TVshows.html">TV Shows</a>
+            <a href="Watchlist.html">My Watchlist</a>
+            <a href="#">Profile</a>
+            <a href="AboutUs.html">About Us</a>
+            <a href="ContactUs.html">Contact Us</a>
+        </nav>
+
+        <div class="search">
+            <input type="text" placeholder="Search...">
+        </div>
+
+        <a href="index.html" class="sign-in">Sign In</a>
+
+    </header>
+
+
+    <main class="profile-container">
+
+        <section class="profile-header">
+
+            <img
+                id="profilePicture"
+                src="https://via.placeholder.com/120"
+                alt="Profile Picture"
+                class="profile-picture"
+            >
+
+            <input
+                type="file"
+                id="profilePictureInput"
+                accept="image/*"
+            >
+
+            <h1 id="profileName">U-AFLAM User</h1>
+
+            <button class="edit-profile-btn" onclick="editProfile()">
+                Edit Profile
+            </button>
+
+        </section>
+
+
+        <section class="recent-section">
+
+            <h2>Recently Watched</h2>
+
+            <div class="recent-list" id="recentList">
+
+                <p id="emptyRecent">
+                    You haven't watched anything yet.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+
+function editProfile() {
+
+    const currentName =
+        localStorage.getItem("profileName") || "U-AFLAM User";
+
+    const newName = prompt(
+        "Enter your name:",
+        currentName
+    );
+
+    if (newName && newName.trim() !== "") {
+
+        localStorage.setItem(
+            "profileName",
+            newName.trim()
+        );
+
+        document.getElementById("profileName").textContent =
+            newName.trim();
+
+    }
+
+}
+
+const savedName =
+    localStorage.getItem("profileName");
+
+if (savedName) {
+
+    document.getElementById("profileName").textContent =
+        savedName;
+
+}
+
+const profilePictureInput =
+    document.getElementById("profilePictureInput");
+
+const profilePicture =
+    document.getElementById("profilePicture");
+
+
+profilePictureInput.addEventListener("change", function () {
+
+    const file = this.files[0];
+
+    if (!file) {
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function () {
+
+        profilePicture.src = reader.result;
+
+        localStorage.setItem(
+            "profilePicture",
+            reader.result
+        );
+
+    };
+
+    reader.readAsDataURL(file);
+
+});
+
+
+const savedPicture =
+    localStorage.getItem("profilePicture");
+
+if (savedPicture) {
+
+    profilePicture.src = savedPicture;
+
+}
+
+</script>
+
+</body>
+
+</html>
