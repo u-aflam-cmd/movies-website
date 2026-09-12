@@ -68,9 +68,12 @@ nav a:hover {
     color: white;
 }
 
-.sign-in:hover {
-    background-color: #1646c7;
+.sign-in a:hover {
+    color: #042556;
+
+    transition: 0.3s;
 }
+
 
 
 /* WATCHLIST TITLE */
