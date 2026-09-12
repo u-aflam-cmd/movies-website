@@ -27,6 +27,21 @@ header {
     color: white;
 }
 
+.recent-watch-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 9px 15px;
+    background-color: #1e5eff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.recent-watch-btn:hover {
+    background-color: #174dcc;
+}
+
 .logo h1 {
     font-size: 28px;
 }
