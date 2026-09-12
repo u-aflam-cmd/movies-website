@@ -178,37 +178,53 @@
 
             </div>
 
+            <p id="noResults">No results found</p>
+
         </section>
 
 
         <script>
 
         const searchInput = document.getElementById("movieSearch");
-        const movies = document.querySelectorAll(".movie");
+const movies = document.querySelectorAll(".movie");
+const noResults = document.getElementById("noResults");
 
-        searchInput.addEventListener("input", function () {
+searchInput.addEventListener("input", function () {
 
-            const searchText = this.value.toLowerCase();
+    const searchText = this.value.toLowerCase();
+    let resultsFound = false;
 
-            movies.forEach(function (movie) {
+    movies.forEach(function (movie) {
 
-                const movieName =
-                    movie.querySelector("h3").textContent.toLowerCase();
+        const movieName =
+            movie.querySelector("h3").textContent.toLowerCase();
 
-                if (movieName.includes(searchText)) {
+        const movieGenre =
+            movie.querySelector("p").textContent.toLowerCase();
 
-                    movie.style.display = "";
+        if (
+            movieName.includes(searchText) ||
+            movieGenre.includes(searchText)
+        ) {
 
-                } else {
+            movie.style.display = "";
+            resultsFound = true;
 
-                    movie.style.display = "none";
+        } else {
 
-                }
+            movie.style.display = "none";
 
-            });
+        }
 
-        });
+    });
 
+    if (resultsFound) {
+        noResults.style.display = "none";
+    } else {
+        noResults.style.display = "block";
+    }
+
+});
         function addToWatchlist(button) {
 
     const movie = button.closest(".movie");
@@ -298,6 +314,8 @@ function loadRatings() {
 }
 
 loadRatings();
+
+
 
     </script>
     </body>
