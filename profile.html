@@ -29,6 +29,10 @@
             <input type="text" placeholder="Search...">
         </div>
 
+        <button id="themeToggle" class="theme-toggle">
+            ☀️ Light Mode
+        </button>
+
         <a href="index.html" class="sign-in">Sign In</a>
 
     </header>
@@ -204,6 +208,33 @@ function loadRecentlyWatched() {
 
 
 loadRecentlyWatched();
+
+const themeToggle = document.getElementById("themeToggle");
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "🌙 Dark Mode";
+}
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙 Dark Mode";
+
+    } else {
+
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️ Light Mode";
+
+    }
+
+});
 
 </script>
 
