@@ -22,6 +22,19 @@
             <input type="text" id="movieSearch" placeholder="Search...">
         </div>
 
+        <button id="themeToggle" class="theme-toggle">
+            ☀️ Light Mode
+        </button>
+
+        <button class="random-movie-btn" onclick="randomMovie()">
+            🎲 Random Movie
+        </button>
+
+        <section class="movie-of-day">
+            <h2>🎬 Movie of the Day</h2>
+            <div id="movieOfDay"></div>
+        </section>
+
         <section>
             <h2>Latest Movies</h2>
 
@@ -416,6 +429,127 @@ function addToRecentlyWatched(button) {
         JSON.stringify(recentlyWatched)
     );
 }
+
+function randomMovie() {
+
+    const movies = document.querySelectorAll(".movie");
+
+    if (movies.length === 0) {
+        return;
+    }
+
+    const randomIndex =
+        Math.floor(Math.random() * movies.length);
+
+    const randomMovie =
+        movies[randomIndex];
+
+    movies.forEach(function(movie) {
+        movie.style.display = "";
+    });
+
+    randomMovie.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    randomMovie.style.transform = "scale(1.05)";
+
+    setTimeout(function() {
+        randomMovie.style.transform = "";
+    }, 1000);
+
+}
+
+function loadMovieOfTheDay() {
+
+    const movies = document.querySelectorAll(".movie");
+
+    if (movies.length === 0) {
+        return;
+    }
+
+    const today = new Date();
+
+    const dateNumber =
+        today.getFullYear() * 10000 +
+        (today.getMonth() + 1) * 100 +
+        today.getDate();
+
+    const movieIndex = dateNumber % movies.length;
+    const movie = movies[movieIndex];
+
+    const title =
+        movie.querySelector("h3").textContent;
+
+    const genre =
+        movie.querySelector("p").textContent;
+
+    const image =
+        movie.querySelector("img").src;
+
+    const rating =
+        movie.querySelector(".fa-star").parentElement.textContent.trim();
+
+    const watchButton =
+        movie.querySelector(".watch-now-btn");
+
+    const watchURL =
+        watchButton.href;
+
+    document.getElementById("movieOfDay").innerHTML = `
+        <div class="movie-of-day-card">
+
+            <img src="${image}" alt="${title}">
+
+            <div class="movie-of-day-info">
+
+                <h3>${title}</h3>
+
+                <p>${genre}</p>
+
+                <p>⭐ ${rating}</p>
+
+                <a href="${watchURL}"
+                   class="movie-of-day-btn"
+                   onclick="addToRecentlyWatched(this)">
+                    Watch Now >
+                </a>
+
+            </div>
+
+        </div>
+    `;
+}
+
+loadMovieOfTheDay();
+
+const themeToggle = document.getElementById("themeToggle");
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "🌙 Dark Mode";
+}
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙 Dark Mode";
+
+    } else {
+
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️ Light Mode";
+
+    }
+
+});
 
     </script>
     </body>
