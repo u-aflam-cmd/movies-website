@@ -22,6 +22,19 @@
             <input type="text" id="movieSearch" placeholder="Search...">
         </div>
 
+        <button id="themeToggle" class="theme-toggle">
+            ☀️ Light Mode
+        </button>
+
+        <button class="random-movie-btn" onclick="randomTVShow()">
+            🎲 Random TV Show
+        </button>
+
+        <section class="movie-of-day">
+            <h2>📺 TV Show of the Day</h2>
+            <div id="movieOfDay"></div>
+        </section>
+
         <section>
             <h2>BEST TV SHOWS</h2>
 
@@ -45,8 +58,9 @@
                     <span onclick="rateMovie(this, 5)">☆</span>
                 </div>
 
-                <a href="https://streamex.ws/watch-tv-ted-lasso-2020-0ersps#s1-e1" class="watch-now-btn"
+                <a href="https://streamex.ws/watch-tv-reacher-2022-r2nvlg" class="watch-now-btn"
                     onclick="addToRecentlyWatched(this)">
+                    Watch Now >
                 </a>
 
                 <button class="watchlist-btn" onclick="addToWatchlist(this)">
@@ -350,6 +364,127 @@ function addToRecentlyWatched(button) {
         JSON.stringify(recentlyWatched)
     );
 }
+
+function randomTVShow() {
+
+    const shows = document.querySelectorAll(".movie");
+
+    if (shows.length === 0) {
+        return;
+    }
+
+    const randomIndex =
+        Math.floor(Math.random() * shows.length);
+
+    const randomShow =
+        shows[randomIndex];
+
+    shows.forEach(function(show) {
+        show.style.display = "";
+    });
+
+    randomShow.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
+
+    randomShow.style.transform = "scale(1.05)";
+
+    setTimeout(function() {
+        randomShow.style.transform = "";
+    }, 1000);
+
+}
+
+function loadTVShowOfTheDay() {
+
+    const shows = document.querySelectorAll(".movie");
+
+    if (shows.length === 0) {
+        return;
+    }
+
+    const today = new Date();
+
+    const dateNumber =
+        today.getFullYear() * 10000 +
+        (today.getMonth() + 1) * 100 +
+        today.getDate();
+
+    const showIndex = dateNumber % shows.length;
+    const show = shows[showIndex];
+
+    const title =
+        show.querySelector("h3").textContent;
+
+    const genre =
+        show.querySelector("p").textContent;
+
+    const image =
+        show.querySelector("img").src;
+
+    const rating =
+        show.querySelector(".fa-star").parentElement.textContent.trim();
+
+    const watchButton =
+        show.querySelector(".watch-now-btn");
+
+    const watchURL =
+        watchButton.href;
+
+    document.getElementById("movieOfDay").innerHTML = `
+        <div class="movie-of-day-card">
+
+            <img src="${image}" alt="${title}">
+
+            <div class="movie-of-day-info">
+
+                <h3>${title}</h3>
+
+                <p>${genre}</p>
+
+                <p>⭐ ${rating}</p>
+
+                <a href="${watchURL}"
+                   class="movie-of-day-btn"
+                   onclick="addToRecentlyWatched(this)">
+                    Watch Now >
+                </a>
+
+            </div>
+
+        </div>
+    `;
+}
+
+loadTVShowOfTheDay();
+
+const themeToggle = document.getElementById("themeToggle");
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    themeToggle.textContent = "🌙 Dark Mode";
+}
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("light-mode");
+
+    if (document.body.classList.contains("light-mode")) {
+
+        localStorage.setItem("theme", "light");
+        themeToggle.textContent = "🌙 Dark Mode";
+
+    } else {
+
+        localStorage.setItem("theme", "dark");
+        themeToggle.textContent = "☀️ Light Mode";
+
+    }
+
+});
 
     </script>
     </body>
