@@ -20,10 +20,6 @@
             <a href="ContactUs.html">Contact Us</a>
         </nav>
 
-        <button id="themeToggle" class="theme-toggle">
-            ☀️ Light Mode
-        </button>
-
         <p>
             Welcome to our movie and TV show website!
             We created this website to make it easy for people
@@ -69,37 +65,6 @@
     <footer>
         <p>&copy; 2026 U-AFLAM. All rights reserved.</p>
     </footer>
-
-    <script>
-
-        const themeToggle = document.getElementById("themeToggle");
-
-const savedTheme = localStorage.getItem("theme");
-
-if (savedTheme === "light") {
-    document.body.classList.add("light-mode");
-    themeToggle.textContent = "🌙 Dark Mode";
-}
-
-themeToggle.addEventListener("click", function () {
-
-    document.body.classList.toggle("light-mode");
-
-    if (document.body.classList.contains("light-mode")) {
-
-        localStorage.setItem("theme", "light");
-        themeToggle.textContent = "🌙 Dark Mode";
-
-    } else {
-
-        localStorage.setItem("theme", "dark");
-        themeToggle.textContent = "☀️ Light Mode";
-
-    }
-
-});
-
-    </script>
 
 </body>
 </html>
