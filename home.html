@@ -37,25 +37,7 @@
         </button>
 
         <a href="index.html" class="sign-in">Sign In</a>
-
-        <button id="notificationBtn" class="notification-btn">🔔</button>
-
-        <div id="notificationPanel" class="notification-panel">
-            <h3>Notifications</h3>
-
-                <div class="notification">
-                    <strong>Welcome to U-AFLAM!</strong>
-                    <p>Stay updated with new movies and TV shows.</p>
-                </div>
-
-                <div class="notification">
-                    <strong>Coming Soon</strong>
-                    <p>Check out the latest movies coming soon.</p>
-                </div>
-
-                <p id="noNotifications" class="no-notifications">
-                    No new notifications.
-                </p>
+        
         </div>
 
     </header>
@@ -709,24 +691,6 @@ themeToggle.addEventListener("click", function () {
     }
 
 });
-
-    const notificationBtn = document.getElementById("notificationBtn");
-    const notificationPanel = document.getElementById("notificationPanel");
-
-    notificationBtn.addEventListener("click", function () {
-        if (notificationPanel.style.display === "block") {
-            notificationPanel.style.display = "none";
-        } else {
-            notificationPanel.style.display = "block";
-        }
-    });
-
-    document.addEventListener("click", function (event) {
-        if (!notificationBtn.contains(event.target) &&
-            !notificationPanel.contains(event.target)) {
-            notificationPanel.style.display = "none";
-        }
-    });
 
 
     </script>
